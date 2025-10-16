@@ -1,119 +1,114 @@
 import Link from "next/link"
-import { Instagram, Mail, MessageCircle, Music } from "lucide-react"
+import { MessageCircle, Mail, Instagram, Music } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer id="contact" className="border-t border-border/40 bg-background">
-      <div className="container px-4 sm:px-6 py-8 sm:py-12 md:py-16">
-        <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-3 sm:space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-primary">
-                <span className="text-base sm:text-lg font-bold text-primary-foreground">B</span>
+    <footer id="contact" className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background border-t border-border/40">
+      {/* Floating animation circles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full animate-float" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-primary/5 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      <div className="container px-4 sm:px-6 py-12 sm:py-16 relative z-10">
+        <div className="grid gap-8 sm:gap-12 grid-cols-1 md:grid-cols-3">
+          {/* Brand section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 shadow-lg hover:scale-110 transition-transform duration-300">
+                <span className="text-lg font-bold text-primary-foreground">T</span>
               </div>
-              <span className="text-lg sm:text-xl font-bold">Tech Master</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                Tech Master
+              </span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Buy real engagement and followers to grow your social media fast.
+            <p className="text-sm text-muted-foreground max-w-sm">
+              Grow your social media presence with real engagement and authentic followers.
             </p>
           </div>
 
-          <div>
-            <h3 className="mb-3 sm:mb-4 text-sm font-semibold">Quick Links</h3>
+          {/* Quick links */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#products" className="text-muted-foreground hover:text-primary transition-colors">
-                  Products
+                <Link href="#order-form" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
+                  Order Now
                 </Link>
               </li>
               <li>
-                <Link href="#how-it-works" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#how-it-works" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link href="#contact" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1 inline-block">
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="mb-3 sm:mb-4 text-sm font-semibold">Payment Methods</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Mobile Money (Momo)</li>
-              <li>Bank Transfer</li>
-              <li>Card Payment</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 sm:mb-5 text-base sm:text-lg font-bold">Get In Touch</h3>
+          {/* Contact */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold">Get In Touch</h3>
             <div className="space-y-3">
               <Link
                 href="https://wa.me/233551234567"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors group"
+                className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-green-500/10 to-green-600/10 hover:from-green-500/20 hover:to-green-600/20 transition-all duration-300 group border border-green-500/20 hover:scale-105"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <MessageCircle className="h-4 w-4 text-primary" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500/20 group-hover:bg-green-500/30 transition-colors">
+                  <MessageCircle className="h-4 w-4 text-green-600 group-hover:scale-110 transition-transform" />
                 </div>
-                <div className="flex-1 min-w-0">
+                <div>
                   <p className="text-xs text-muted-foreground">WhatsApp</p>
-                  <p className="text-sm font-medium truncate">+233 55 123 4567</p>
+                  <p className="text-sm font-medium">+233 55 123 4567</p>
                 </div>
               </Link>
 
               <Link
-                href="mailto:support@boostupghana.com"
-                className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors group"
+                href="mailto:support@techmaster.com"
+                className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-blue-500/10 to-blue-600/10 hover:from-blue-500/20 hover:to-blue-600/20 transition-all duration-300 group border border-blue-500/20 hover:scale-105"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Mail className="h-4 w-4 text-primary" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors">
+                  <Mail className="h-4 w-4 text-blue-600 group-hover:scale-110 transition-transform" />
                 </div>
-                <div className="flex-1 min-w-0">
+                <div>
                   <p className="text-xs text-muted-foreground">Email</p>
-                  <p className="text-sm font-medium truncate">support@boostupghana.com</p>
-                </div>
-              </Link>
-
-              <Link
-                href="https://instagram.com/boostupghana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors group"
-              >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Instagram className="h-4 w-4 text-primary" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs text-muted-foreground">Instagram</p>
-                  <p className="text-sm font-medium truncate">@boostupghana</p>
-                </div>
-              </Link>
-
-              <Link
-                href="https://tiktok.com/@boostupghana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors group"
-              >
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Music className="h-4 w-4 text-primary" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs text-muted-foreground">TikTok</p>
-                  <p className="text-sm font-medium truncate">@boostupghana</p>
+                  <p className="text-sm font-medium">support@techmaster.com</p>
                 </div>
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 sm:mt-12 border-t border-border/40 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Tech Master. All rights reserved.</p>
+        {/* Bottom section */}
+        <div className="mt-12 pt-8 border-t border-border/40">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-muted-foreground">
+              &copy; {new Date().getFullYear()} Tech Master. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://instagram.com/techmaster"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125"
+              >
+                <Instagram className="h-4 w-4" />
+              </Link>
+              <Link
+                href="https://tiktok.com/@techmaster"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125"
+              >
+                <Music className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
