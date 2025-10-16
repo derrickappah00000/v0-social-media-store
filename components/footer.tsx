@@ -11,7 +11,7 @@ export function Footer() {
               <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-primary">
                 <span className="text-base sm:text-lg font-bold text-primary-foreground">B</span>
               </div>
-              <span className="text-lg sm:text-xl font-bold">BoostUp Ghana</span>
+              <span className="text-lg sm:text-xl font-bold">Tech Master</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Buy real engagement and followers to grow your social media fast.
@@ -113,7 +113,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 sm:mt-12 border-t border-border/40 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} BoostUp Ghana. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Tech Master. All rights reserved.</p>
         </div>
       </div>
     </footer>

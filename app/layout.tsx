@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "BoostUp Ghana - Grow Your Social Media Fast",
+  title: "Tech Master - Grow Your Social Media Fast",
   description:
     "Buy real engagement and followers to grow your social media fast. Trusted by thousands of creators in Ghana.",
   generator: "v0.app",

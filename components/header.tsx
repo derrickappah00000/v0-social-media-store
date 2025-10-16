@@ -10,7 +10,7 @@ export function Header() {
           <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-primary">
             <span className="text-base sm:text-lg font-bold text-primary-foreground">B</span>
           </div>
-          <span className="text-base sm:text-xl font-bold">BoostUp Ghana</span>
+          <span className="text-base sm:text-xl font-bold">Tech Master</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

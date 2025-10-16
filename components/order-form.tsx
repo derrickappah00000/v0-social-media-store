@@ -148,7 +148,7 @@ export function OrderForm() {
 
       // Optional: Still send to WhatsApp
       const orderDetails = `
-*New Order - BoostUp Ghana*
+*New Order - Tech Master*
 
 Platform: ${socialMedia}
 Service: ${serviceType.charAt(0).toUpperCase() + serviceType.slice(1)}
@@ -536,7 +536,7 @@ Order ID: ${orderData?.[0]?.id}
                     {paymentMethod === "Bank Transfer" && (
                       <div className="text-sm space-y-1">
                         <p>Bank: GCB Bank</p>
-                        <p>Account Name: BoostUp Ghana</p>
+                        <p>Account Name: Tech Master</p>
                         <p>Account Number: 1234567890</p>
                         <p>Amount: GHS {getSelectedPrice()}</p>
                         <p>Take a screenshot of the transfer confirmation</p>

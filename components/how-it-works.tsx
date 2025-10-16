@@ -1,20 +1,20 @@
-import { MessageCircle, CreditCard, Zap } from "lucide-react"
+import { ShoppingCart, CreditCard, Zap } from "lucide-react"
 
 const steps = [
   {
-    icon: MessageCircle,
-    title: "Choose & Contact",
-    description: "Select your package and contact us via WhatsApp with your order details.",
+    icon: ShoppingCart,
+    title: "Select Package",
+    description: "Choose your social media platform, service type, and package size from our affordable options.",
   },
   {
     icon: CreditCard,
-    title: "Make Payment",
-    description: "Pay securely using Momo, bank transfer, or card payment.",
+    title: "Complete Order",
+    description: "Fill out your details, make payment via Momo, bank transfer, or card, and upload proof.",
   },
   {
     icon: Zap,
     title: "Get Results",
-    description: "Receive your likes, followers, or comments within minutes!",
+    description: "Receive your engagement boost within minutes! We'll confirm via WhatsApp.",
   },
 ]
 
@@ -25,7 +25,7 @@ export function HowItWorks() {
         <div className="mx-auto max-w-2xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl mb-4">How It Works</h2>
           <p className="text-lg text-muted-foreground text-balance">
-            Get started in three simple steps. It's fast, easy, and secure.
+            Boost your social media presence in three simple steps. Fast, secure, and trusted by thousands.
           </p>
         </div>
 
