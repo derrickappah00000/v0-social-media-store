@@ -52,6 +52,12 @@ const socialMediaPlatforms = ["Instagram", "Facebook", "TikTok", "YouTube", "Twi
 
 const paymentMethods = ["Momo", "Bank Transfer", "Card Payment"]
 
+const mobileNetworks = [
+  { id: "mtn", name: "MTN Mobile Money", code: "*170#", number: "0242119565" },
+  { id: "telecel", name: "Telecel Cash", code: "*110#", number: "0242119565" },
+  { id: "airteltigo", name: "AirtelTigo Money", code: "*110#", number: "0242119565" }
+]
+
 export function OrderForm() {
   const [currentStep, setCurrentStep] = useState(1)
 
@@ -59,6 +65,7 @@ export function OrderForm() {
   const [serviceType, setServiceType] = useState<string>("")
   const [selectedPackage, setSelectedPackage] = useState<string>("")
   const [paymentMethod, setPaymentMethod] = useState<string>("")
+  const [mobileNetwork, setMobileNetwork] = useState<string>("")
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
@@ -155,7 +162,7 @@ Service: ${serviceType.charAt(0).toUpperCase() + serviceType.slice(1)}
 Package: ${pkg?.label}
 Price: GHS ${pkg?.price}
 
-Payment Method: ${paymentMethod}
+Payment Method: ${paymentMethod}${paymentMethod === "Momo" && mobileNetwork ? ` (${mobileNetworks.find(n => n.id === mobileNetwork)?.name})` : ""}
 
 Customer Details:
 Name: ${name}
@@ -180,7 +187,7 @@ Order ID: ${orderData?.[0]?.id}
   const isStep1Valid = socialMedia !== ""
   const isStep2Valid = serviceType !== "" && selectedPackage !== "" && socialLink !== ""
   const isStep3Valid = name !== "" && phone !== "" && email !== ""
-  const isStep4Valid = paymentMethod !== ""
+  const isStep4Valid = paymentMethod !== "" && (paymentMethod !== "Momo" || mobileNetwork !== "")
   const isStep5Valid = screenshot !== null
 
   const canProceedToStep2 = isStep1Valid
@@ -525,12 +532,60 @@ Order ID: ${orderData?.[0]?.id}
                   <div className="bg-muted p-4 rounded-lg border">
                     <h4 className="font-semibold mb-2">Payment Instructions:</h4>
                     {paymentMethod === "Momo" && (
-                      <div className="text-sm space-y-1">
-                        <p>1. Dial *170#</p>
-                        <p>2. Select "Send Money"</p>
-                        <p>3. Enter: 0551234567</p>
-                        <p>4. Enter amount: GHS {getSelectedPrice()}</p>
-                        <p>5. Take a screenshot of the confirmation</p>
+                      <div className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="network">Select Mobile Network *</Label>
+                          <Select value={mobileNetwork} onValueChange={setMobileNetwork}>
+                            <SelectTrigger id="network" className="h-12">
+                              <SelectValue placeholder="Choose your mobile network" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {mobileNetworks.map((network) => (
+                                <SelectItem key={network.id} value={network.id}>
+                                  {network.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        
+                        {mobileNetwork && (
+                          <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
+                            <h5 className="font-medium mb-3 text-primary">Payment Steps:</h5>
+                            <div className="text-sm space-y-2">
+                              {mobileNetwork === "mtn" && (
+                                <>
+                                  <p>1. Dial <span className="font-mono bg-muted px-2 py-1 rounded">*170#</span></p>
+                                  <p>2. Select "Send Money"</p>
+                                  <p>3. Enter: <span className="font-mono bg-muted px-2 py-1 rounded">0242119565</span></p>
+                                  <p>4. Enter amount: <span className="font-semibold text-primary">GHS {getSelectedPrice()}</span></p>
+                                  <p>5. Enter your PIN</p>
+                                  <p>6. Take a screenshot of the confirmation</p>
+                                </>
+                              )}
+                              {mobileNetwork === "telecel" && (
+                                <>
+                                  <p>1. Dial <span className="font-mono bg-muted px-2 py-1 rounded">*110#</span></p>
+                                  <p>2. Select "Send Money"</p>
+                                  <p>3. Enter: <span className="font-mono bg-muted px-2 py-1 rounded">0242119565</span></p>
+                                  <p>4. Enter amount: <span className="font-semibold text-primary">GHS {getSelectedPrice()}</span></p>
+                                  <p>5. Enter your PIN</p>
+                                  <p>6. Take a screenshot of the confirmation</p>
+                                </>
+                              )}
+                              {mobileNetwork === "airteltigo" && (
+                                <>
+                                  <p>1. Dial <span className="font-mono bg-muted px-2 py-1 rounded">*110#</span></p>
+                                  <p>2. Select "Send Money"</p>
+                                  <p>3. Enter: <span className="font-mono bg-muted px-2 py-1 rounded">0242119565</span></p>
+                                  <p>4. Enter amount: <span className="font-semibold text-primary">GHS {getSelectedPrice()}</span></p>
+                                  <p>5. Enter your PIN</p>
+                                  <p>6. Take a screenshot of the confirmation</p>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
                     {paymentMethod === "Bank Transfer" && (
