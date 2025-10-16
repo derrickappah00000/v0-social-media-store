@@ -635,10 +635,41 @@ Order ID: ${orderData?.[0]?.id}
                 )}
 
                 {selectedPackage && (
-                  <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                    <div className="flex items-center justify-between">
-                      <span className="font-semibold">Total Price:</span>
-                      <span className="text-2xl font-bold text-primary">GHS {getSelectedPrice()}</span>
+                  <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-primary/10 p-6 rounded-2xl border border-primary/20 shadow-lg">
+                    {/* Background decoration */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/10 rounded-full animate-pulse"></div>
+                    <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-primary/5 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    
+                    <div className="relative z-10">
+                      <div className="text-center mb-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30">
+                          <CheckCircle2 className="h-4 w-4 text-primary" />
+                          <span className="text-sm font-medium text-primary">Package Selected</span>
+                        </div>
+                      </div>
+                      
+                      <div className="text-center">
+                        <p className="text-sm text-muted-foreground mb-2">Total Amount</p>
+                        <div className="flex items-center justify-center gap-2 mb-3">
+                          <span className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                            GHS {getSelectedPrice()}
+                          </span>
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20">
+                            <span className="text-xs font-bold text-primary">₵</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <CheckCircle2 className="h-3 w-3 text-green-500" />
+                            <span>Instant Delivery</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <CheckCircle2 className="h-3 w-3 text-green-500" />
+                            <span>100% Secure</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
